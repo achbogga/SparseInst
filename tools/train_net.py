@@ -11,6 +11,7 @@ from detectron2.utils.logger import setup_logger
 from detectron2.data import MetadataCatalog, build_detection_train_loader, DatasetMapper
 from detectron2.engine import AutogradProfiler, DefaultTrainer, default_argument_parser, default_setup, launch
 from detectron2.evaluation import COCOEvaluator, verify_results
+from detectron2.data.datasets import register_coco_instances
 from detectron2.solver.build import maybe_add_gradient_clipping
 from detectron2.evaluation import (
     CityscapesInstanceEvaluator,
@@ -26,6 +27,14 @@ from detectron2.evaluation import (
 
 sys.path.append(".")
 from sparseinst import add_sparse_inst_config, COCOMaskEvaluator
+
+train_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated/train.json'
+test_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated/test.json'
+image_dir = '/home/aboggaram/data/Octiva/data_for_playment'
+
+#register octiva datasets
+register_coco_instances("octiva_train", {}, train_json, image_dir)
+register_coco_instances("octiva_test", {}, test_json, image_dir)
 
 
 class Trainer(DefaultTrainer):
