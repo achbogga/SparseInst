@@ -4,10 +4,4 @@ MODEL:
 SOLVER:
   AMP:
     ENABLED: True
-INPUT:
-  CROP:
-    ENABLED: True
-    TYPE: "absolute_range"
-    SIZE: (384, 600)
-  MASK_FORMAT: "polygon"
 OUTPUT_DIR: "/home/aboggaram/models/octiva_sparse_inst_r50_giam_fp16"

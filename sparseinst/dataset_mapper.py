@@ -34,11 +34,25 @@ def build_transform_gen(cfg, is_train):
         max_size = cfg.INPUT.MAX_SIZE_TEST
         sample_style = "choice"
     if is_train and cfg.INPUT.RANDOM_FLIP != "none":
-        augmentation.append(
-            T.RandomFlip(
+        augmentation.extend(
+            [
+                T.RandomFlip(
                 horizontal=cfg.INPUT.RANDOM_FLIP == "horizontal",
                 vertical=cfg.INPUT.RANDOM_FLIP == "vertical",
-            )
+                ),
+                T.RandomSaturation(
+                    0.9, 1.1
+                ),
+                T.RandomLighting(
+                    0.9
+                ),
+                T.RandomRotation(
+                    [-45, 45], 
+                    expand=True, 
+                    center=[[0.4, 0.4], [0.6, 0.6]], 
+                    sample_style='range'
+                ),
+            ]
         )
     if is_train:
         # 800,1333, 0.6
