@@ -28,8 +28,8 @@ from detectron2.evaluation import (
 sys.path.append(".")
 from sparseinst import add_sparse_inst_config, COCOMaskEvaluator
 
-train_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated/train.json'
-test_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated/test.json'
+train_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated_11_01_2022/train.json'
+test_json = '/home/aboggaram/data/Octiva/consolidated_coco_format_validated_11_01_2022/test.json'
 image_dir = '/home/aboggaram/data/Octiva/data_for_playment'
 
 #register octiva datasets

@@ -1,0 +1,7 @@
+_BASE_: "Base-SparseInst.yaml"
+MODEL:
+  WEIGHTS: "/home/aboggaram/models/octiva_sparse_inst_r50_giam_fp16/model_final.pth"
+SOLVER:
+  AMP:
+    ENABLED: True
+OUTPUT_DIR: "/home/aboggaram/models/octiva_sparse_inst_r50_giam_fp16"
